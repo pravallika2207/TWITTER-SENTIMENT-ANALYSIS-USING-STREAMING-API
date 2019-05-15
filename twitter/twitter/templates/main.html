@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<h1>hello world!!!</h1>
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://127.0.0.1:5000/get_data", true);
+  xhttp.send();
+}
+
+
+</script>
+</body>
+</html>
